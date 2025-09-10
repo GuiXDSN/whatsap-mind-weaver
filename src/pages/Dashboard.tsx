@@ -2,13 +2,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MessageSquare, Users, Brain, TrendingUp, Activity, Bot, FileText, Settings } from "lucide-react";
+import { MessageSquare, Users, Brain, TrendingUp, Activity, Bot, FileText, Settings, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 import { StatsGrid } from "@/components/dashboard/StatsGrid";
 import { ConversationsChart } from "@/components/dashboard/ConversationsChart";
 import { RecentConversations } from "@/components/dashboard/RecentConversations";
 import { KnowledgeCorpus } from "@/components/dashboard/KnowledgeCorpus";
 
 const Dashboard = () => {
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
   return (
     <div className="min-h-screen bg-gradient-bg">
       <div className="container mx-auto p-6">
@@ -24,6 +31,9 @@ const Dashboard = () => {
               </p>
             </div>
             <div className="flex items-center gap-4">
+              <span className="text-sm text-muted-foreground">
+                Olá, {user?.email}
+              </span>
               <Badge variant="outline" className="bg-success/10 text-success border-success/20">
                 <Activity className="w-3 h-3 mr-1" />
                 Online
@@ -31,6 +41,10 @@ const Dashboard = () => {
               <Button className="bg-gradient-primary shadow-primary">
                 <Settings className="w-4 h-4 mr-2" />
                 Configurações
+              </Button>
+              <Button variant="outline" onClick={handleSignOut}>
+                <LogOut className="w-4 h-4 mr-2" />
+                Sair
               </Button>
             </div>
           </div>
