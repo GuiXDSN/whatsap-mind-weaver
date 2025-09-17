@@ -97,7 +97,7 @@ const Auth = () => {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-4">
-            <Bot className="w-8 h-8 text-white" />
+            <Bot className="w-8 h-8 text-white" aria-label="Ícone do chatbot RAG" />
           </div>
           <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">
             RAG Chatbot
@@ -128,7 +128,7 @@ const Auth = () => {
               )}
 
               {success && (
-                <Alert className="mt-4 border-green-200 text-green-800 bg-green-50">
+                <Alert className="mt-4 border-success/20 text-success bg-success/10">
                   <AlertDescription>{success}</AlertDescription>
                 </Alert>
               )}

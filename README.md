@@ -1,73 +1,149 @@
-# Welcome to your Lovable project
+# Chatbot RAG Admin - WhatsApp AI Assistant
 
-## Project info
+## 📋 Sobre o Projeto
 
-**URL**: https://lovable.dev/projects/72de9d20-a5c9-465c-b0f3-84a77387bb0a
+Sistema administrativo completo para gerenciamento de chatbot RAG (Retrieval-Augmented Generation) integrado ao WhatsApp Business API e potencializado pela OpenAI. Oferece uma interface moderna e intuitiva para monitoramento de conversas, gestão de base de conhecimento e análise de performance.
 
-## How can I edit this code?
+## 🚀 Funcionalidades Principais
 
-There are several ways of editing your application.
+### 🔐 Sistema de Autenticação
+- Login e cadastro seguro com Supabase Auth
+- Proteção de rotas e sessões persistentes
+- Interface responsiva para autenticação
 
-**Use Lovable**
+### 📊 Dashboard Administrativo
+- **Métricas em Tempo Real**: Total de conversas, usuários únicos, taxa de resolução
+- **Gráficos Analíticos**: Conversas por período, tempo de resposta, tendências
+- **Status do Sistema**: Monitoramento de uptime e performance
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/72de9d20-a5c9-465c-b0f3-84a77387bb0a) and start prompting.
+### 💬 Gerenciamento de Conversas
+- Lista de conversas recentes com status
+- Filtros por status (ativa, resolvida, precisa atenção)
+- Métricas de satisfação do usuário
+- Histórico detalhado de mensagens
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🧠 Base de Conhecimento (RAG)
+- Upload e gerenciamento de documentos
+- Indexação automática para busca semântica
+- Status de processamento de documentos
+- Métricas de precisão por fonte
 
-**Use your preferred IDE**
+### 🎨 Design System
+- Interface moderna com Tailwind CSS
+- Sistema de tokens semânticos para cores
+- Suporte completo a modo escuro/claro
+- Componentes reutilizáveis do shadcn/ui
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Tecnologias Utilizadas
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Frontend
+- **React 18** com TypeScript
+- **Tailwind CSS** para estilização
+- **shadcn/ui** para componentes
+- **Recharts** para gráficos
+- **Lucide React** para ícones
+- **React Router** para navegação
 
-Follow these steps:
+### Backend & Infraestrutura
+- **Supabase** para backend-as-a-service
+- **Supabase Auth** para autenticação
+- **PostgreSQL** via Supabase
+- **Real-time subscriptions** para atualizações em tempo real
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Ferramentas de Desenvolvimento
+- **Vite** como build tool
+- **TypeScript** para tipagem
+- **ESLint** para linting
+- **React Query** para gerenciamento de estado
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🏗️ Arquitetura do Sistema
 
-# Step 3: Install the necessary dependencies.
-npm i
+```
+src/
+├── pages/                 # Páginas principais
+│   ├── Auth.tsx          # Autenticação
+│   ├── Dashboard.tsx     # Dashboard principal
+│   └── NotFound.tsx      # Página 404
+├── components/
+│   ├── ui/               # Componentes base do shadcn/ui
+│   ├── dashboard/        # Componentes específicos do dashboard
+│   └── ProtectedRoute.tsx # Proteção de rotas
+├── hooks/
+│   └── useAuth.tsx       # Hook de autenticação
+├── integrations/
+│   └── supabase/         # Configuração do Supabase
+└── lib/
+    └── utils.ts          # Utilitários
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+- Node.js 18+ instalado
+- Conta no Supabase (opcional, para backend)
+
+### Instalação
+```bash
+# Instale as dependências
+npm install
+
+# Execute o projeto em desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Configuração do Supabase (Opcional)
+O projeto já está configurado com Supabase. Para usar seu próprio projeto:
+1. Crie um projeto no [Supabase](https://supabase.com)
+2. Configure as variáveis de ambiente no arquivo `.env`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📦 Deploy para Produção
 
-**Use GitHub Codespaces**
+### Deploy Automático via Lovable
+1. Abra seu projeto no [Lovable](https://lovable.dev/projects/72de9d20-a5c9-465c-b0f3-84a77387bb0a)
+2. Clique em "Share" -> "Publish"
+3. Seu projeto estará online em segundos!
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Build Local
+```bash
+# Gerar build otimizado
+npm run build
 
-## What technologies are used for this project?
+# Preview do build
+npm run preview
+```
 
-This project is built with:
+### Deploy Manual
+Você pode fazer deploy em qualquer provedor que suporte sites estáticos:
+- **Vercel**: Deploy automático via GitHub
+- **Netlify**: Drag & drop da pasta `dist`
+- **Cloudflare Pages**: Integração com Git
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🔮 Próximas Funcionalidades
 
-## How can I deploy this project?
+### Integrações Planejadas
+- [ ] **WhatsApp Business API** - Integração completa
+- [ ] **OpenAI API** - Processamento de linguagem natural
+- [ ] **Banco Vetorial** - Para busca semântica (Pinecone/Weaviate)
+- [ ] **Edge Functions** - Lógica de backend customizada
 
-Simply open [Lovable](https://lovable.dev/projects/72de9d20-a5c9-465c-b0f3-84a77387bb0a) and click on Share -> Publish.
+### Funcionalidades Avançadas
+- [ ] **Analytics Avançados** - Relatórios personalizados
+- [ ] **Multi-tenancy** - Suporte a múltiplas empresas
+- [ ] **API REST** - Integração com sistemas externos
+- [ ] **Webhooks** - Notificações em tempo real
 
-## Can I connect a custom domain to my Lovable project?
+## 🎯 Próximos Passos para Implementação
 
-Yes, you can!
+1. **Configurar WhatsApp Business API**
+2. **Integrar OpenAI para processamento RAG**
+3. **Implementar banco vetorial para busca semântica**
+4. **Criar sistema de upload de documentos**
+5. **Adicionar monitoramento em tempo real**
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 Licença
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Este projeto está sob a licença MIT.
+
+---
+
+**Desenvolvido com ❤️ usando [Lovable](https://lovable.dev)**
